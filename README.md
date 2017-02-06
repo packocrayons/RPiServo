@@ -14,14 +14,14 @@ You can send most servos down to 900us and up to about 2100us, and they might mo
 If the servo is shaking a lot, please shut it off, they have no temperature protection and might melt themselves.
 
 
-Note : this class was intended to be run in its own thread, and should be started as such. Example:
+## Multithreading
+This class was intended to be run in its own thread, and should be started as such. Example:
 Servo myServo = new Servo("24");
 new Thread(myServo).start();
 myServo.increment_angle();
 ... etc
-
 Be careful when adding things to this class, long prints or long operations on this thread (in the functions) will cause the servo to shake and be inaccurate (see PWM jitter).
 It is best to leave this thread as is and do most operations on another thread.
 
-A note for passive applications :
+## A note for passive applications
 most servos will shut off when the signal pin is pulled low or floating (ie no signal), this is useful for saving power if the servo is going to remain in the same position for a long period of time
